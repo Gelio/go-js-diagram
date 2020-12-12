@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/Gelio/go-js-diagram/pkg/box"
+	"github.com/Gelio/go-js-diagram/pkg/components"
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
 )
@@ -18,6 +18,6 @@ type pageView struct {
 
 func (p *pageView) Render() vecty.ComponentOrHTML {
 	return elem.Body(
-		&box.Box{},
+		&components.Box{},
 	)
 }
