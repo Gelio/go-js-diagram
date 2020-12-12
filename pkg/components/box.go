@@ -16,6 +16,7 @@ type Box struct {
 	dragStartBoxX, dragStartBoxY     int
 	dragStartMouseX, dragStartMouseY int
 	mouseMoveFunc                    js.Func
+	Children                         func() vecty.ComponentOrHTML `vecty:"slot"`
 }
 
 func (b *Box) Render() vecty.ComponentOrHTML {
@@ -38,9 +39,7 @@ func (b *Box) Render() vecty.ComponentOrHTML {
 					event.MouseUp(b.stopListeningForMouseMove),
 				),
 			),
-			elem.Paragraph(
-				vecty.Text("Drag me, senpai"),
-			),
+			b.Children(),
 		),
 	)
 }
